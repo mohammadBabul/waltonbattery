@@ -1,0 +1,40 @@
+{% extends 'base.html' %} 
+
+{% block body %}
+
+<br/>
+<form method="POST">
+
+<select class="selectpicker show-menu-arrow" id="list" onchange="getSelectValue()">
+
+  {% for q in object_list  %}
+  <option value="{{ q.model_category.id}}">{{q.model_category.title }}</option>
+
+  {% endfor %}
+</section>
+ </select>     
+        
+    <br/>
+    <br/>
+    <br>
+    <script>
+      function getSelectValue(){
+        var selectItem = document.getElementById("list").value;
+        console.log(selectItem);
+      }
+    </script>
+    <div class="card">
+      {% for m in object_list  %}
+      <div class="card-header">
+        {{ m.ime_number }}
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>{{ m.lcd }}</p>
+          <footer class="blockquote-footer"> version === {{m.version }}</footer>
+        </blockquote>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %} 
+
+{% block body %}
+
+    <form class="form" method="POST" action="show3">
+        <select id="nameEmployees" name="nameEmployees" class="form-control" onchange="get_host_name(this.value)">
+                <option value="%">---------</option>
+                {% for q in cat %}
+                    <option value="{{ q.id }}">{{ q.name }}</option>
+                {% endfor %}<br>
+                
+        </select>
+    </form>
+  
+    <br/>
+    <br>
+    <script>
+      function getSelectValue(){
+        var selectItem = document.getElementById("linameEmployees").value;
+        console.log(selectItem);
+      }
+    </script>
+    
+{% endblock %}
